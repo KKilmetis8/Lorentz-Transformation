@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Lorentz Transform </title>
+	</head>
+	<body>
+		
+		<script>
+		function getCursorPosition(canvas, event) {
+    	var rect = canvas.getBoundingClientRect();
+    	var x = event.clientX - rect.left;
+    	var y = event.clientY - rect.top;
+    	console.log("x: " + x + " y: " + y);
+		}	
+		function xlor(x,gamma,v,t){
+		return gamma*(x-v*t);
+		}
+		
+		function tlor(x,gamma,v,t){
+		return gamma*(t-v*x);
+		}
+		
+		function gamma(v){
+		return 1/Math.sqrt(1-v*v);
+		}
+		<canvas id="grid1" width="1000" height="1000">
+
+		var g,pixelx=2, pixelt=1, velocity=0.5;
+		g=gamma(velocity);
+		document.write("Lorentz transform in x axis with c=1 is");
+		document.write ("<br>");
+		document.write(xlor(pixelx,g,velocity,pixelt));*/
+		</script>
+	</body>
+</html>
