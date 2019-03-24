@@ -3,7 +3,7 @@ I volunteered to make an applet that has 2 graphs. On one you can click stuff an
 
 I'll try to use CanvasJS and Jquery.
 
-People i need to thank for helping me with learning Java, HTML and JS.
+People i need to thank for helping me with learning Java, HTML and most importantly JavaScript.
 Polydoros Spanoudakis
 Leonidas Arsenopoulos
 Thanasis Ermidis
