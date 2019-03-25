@@ -6,5 +6,5 @@ I'll try to use CanvasJS and Jquery, if the need arises.
 People i need to thank for helping me with learning Java, HTML and most importantly JavaScript:
 Polydoros Spanoudakis,
 Leonidas Arsenopoulos,
-Thanasis Ermidis
+Thanasis Ermidis,
 Mixalis Kalogris
