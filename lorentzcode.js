@@ -47,7 +47,9 @@ context2.fillText("t'",240,15);
 context2.fillText("x'",470,265);
 
 //The velocity buttons
-var current_velocity=0.01, step = 0.01, Ntoys = 10000, color = '#000000';;
+var current_velocity=0.01;
+var step = 0.01, Ntoys = 10000, color = '#000000';
+veldisp();
 var colorArray =[
 '#000000',//Black, 0      
 '#8BAFFF', //Light  blue, 1
@@ -59,13 +61,14 @@ var colorArray =[
 '#FF5B35', //Red, 7
 '#7F251A', //Hard red, 8
 '#FF9000', //Orange, 9 use this for current point
-'#BD90E1', //Violet, 10 for v=0
+'#BD90E1', //Violet, 10 for v=0 or not :p
 ];
 
 //+ button
 var buttonplus = document.getElementById("plus"); // 1. get the button
-buttonplus.addEventListener ("click", function() { // 2. Add event handler
+buttonplus.addEventListener("click",function() { // 2. Add event handler
 current_velocity=current_velocity+step;
+veldisp();
 //u>0 colours
 	if (current_velocity<0.75){
 		color=colorArray[4];
@@ -79,7 +82,6 @@ current_velocity=current_velocity+step;
 	if (current_velocity<0.25 && current_velocity>0){
 		color=colorArray[1];
 	}
-
 	//u<0 colours
 	if (current_velocity<-0.75){
 		color=colorArray[8];
@@ -93,17 +95,19 @@ current_velocity=current_velocity+step;
 	if (current_velocity>-0.25 && current_velocity<0){
 		color=colorArray[5];
 	}
-lorentz.x=xlor(mouse.x,gamma(current_velocity),current_velocity,mouse.y);
-lorentz.y=tlor(mouse.x,gamma(current_velocity),current_velocity,mouse.y);
-lorentz.x=lorentz.x+250;
-lorentz.y=250+lorentz.y;
-draw2(lorentz.x,lorentz.y,color);  
+	lorentz.x=xlor(perm.x,gamma(current_velocity),current_velocity,perm.y);  
+	lorentz.y=tlor(perm.x,gamma(current_velocity),current_velocity,perm.y);
+	lorentz.x=lorentz.x+250;
+	lorentz.y=250+lorentz.y;
+	draw2(lorentz.x,lorentz.y,color); 
+	console.log("v="+current_velocity);
 });
 
 //- button
 var buttonminus = document.getElementById("minus");
-buttonminus.addEventListener ("click", function() { 
+buttonminus.addEventListener("click", function() { 
 current_velocity=current_velocity-step;
+veldisp();
 //u>0 colours
 	if (current_velocity<0.75){
 		color=colorArray[4];
@@ -131,11 +135,12 @@ current_velocity=current_velocity-step;
 	if (current_velocity>-0.25 && current_velocity<0){
 		color=colorArray[5];
 	}
-lorentz.x=xlor(mouse.x,gamma(current_velocity),current_velocity,mouse.y);
-lorentz.y=tlor(mouse.x,gamma(current_velocity),current_velocity,mouse.y);
+	lorentz.x=xlor(perm.x,gamma(current_velocity),current_velocity,perm.y);  
+	lorentz.y=tlor(perm.x,gamma(current_velocity),current_velocity,perm.y);
 lorentz.x=lorentz.x+250;
 lorentz.y=250+lorentz.y;
-draw2(lorentz.x,lorentz.y,color);  
+draw2(lorentz.x,lorentz.y,color);
+console.log("v="+current_velocity);  
 });
 
 // Auto button
@@ -183,9 +188,9 @@ for (var i=0; i <2*Ntoys; i++) {
 });
 
 //Velocity Display
-var vd=document.getElementById('velocitydisplay');
-var node= document.createTextNode("v= "+current_velocity);
-vd.appendChild(node);
+function veldisp(){
+document.getElementById('velocitydisplay').innerHTML=("v="+Math.round(current_velocity*100)/100);
+}
 
 //Clean Button
 var buttonclean=document.getElementById("clean"); 
@@ -249,22 +254,39 @@ function draw2(x,y,color) {
 	context2.fill();
 	}
 
-
+var perm={
+	x:undefined,
+	y:undefined
+}
+function getperm(x,y){;
+	x=x-250;
+	y=y-250;
+	perm.x=x;
+	perm.y=y;
+}
 window.addEventListener('click',  //Listens for clicks and
-	function(event)				  //Gives me the coordinates
-	{							  
+	function()				     //Gives me the coordinates
+	{
+
 	mouse.x= event.pageX-10;
 	mouse.y= event.pageY-175;
 	console.log("x:"+mouse.x+"y:"+mouse.y);
+	if(mouse.x<500){
 	draw1(mouse.x,mouse.y);
+	getperm(mouse.x,mouse.y);
 	mouse.x=mouse.x-250;    //Makes for x 0->-250, 250->0, 500->250	
 	mouse.y=mouse.y-250;
-	
 	lorentz.x=xlor(mouse.x,gamma(0.01),0.01,mouse.y);
 	lorentz.y=tlor(mouse.x,gamma(0.01),0.01,mouse.y);
+	
 	lorentz.x=lorentz.x+250;
 	lorentz.y=250+lorentz.y;
 	
 	console.log("x:"+lorentz.x+"y:"+lorentz.y);
 	draw2(lorentz.x,lorentz.y,colorArray[9]);
-	})
+	
+	
+}})
+
+//	lorentz.x=xlor(perm.x,gamma(current_velocity),current_velocity,perm.y);  
+//	lorentz.y=tlor(perm.x,gamma(current_velocity),current_velocity,perm.y);
