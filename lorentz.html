@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF=8">
+		<meta charset="utf-8">
 		<title> Lorentz Transform </title>
 		<style type="text/css">
 			canvas {
@@ -15,6 +15,9 @@
 			p.small{
 				font-size: 10px;
 			}
+			p.window{
+				background-color: #FFFFFF;
+			}
 			a.small{
 				font-size: 10px;
 			}
@@ -23,17 +26,21 @@
 	<body>
 			<h1> The Lorentz Transformation</h1>
 			<p> In this applet we will examine the Lorentz transformation graphically and how it inevitably leads to the creation of cosmic lines. </p>
-			<p> Click on the graph on the right and watch how the inertial attender of the relativistic graph "sees" the same point! Then change the velocity and see the cosmic lines take shape!</p>
+			<p> Click on the graph on the right and watch how the inertial attender of the relativistic graph "sees" the same point! Then change the velocity and see the cosmic lines take shape! </p>
 			<p> The Auto button will make the cosmic lines for a given point on its own. </p>
-			<canvas id="mycanvas1" style="position:absolute; TOP:175px; LEFT:10px; WIDTH:500px; HEIGHT:500px"></canvas>
-			<canvas id="mycanvas2" style="position:absolute; TOP:175px; LEFT:515px; WIDTH:500px; HEIGHT:500px"></canvas>
-			 <button type="button" id="plus" style="position:absolute; TOP:250px; LEFT:1020px; WIDTH:50px; HEIGHT:20px;">+0.01</button> 
-			 <button type="button" id="minus" style="position:absolute; TOP:285px; LEFT:1020px; WIDTH:50px; HEIGHT:20px;">-0.01</button> 
-			 <button type="button" id="auto"style="position:absolute; TOP:350px; LEFT:1020px; WIDTH:50px; HEIGHT:20px;">Auto</button> 
-			 <!-- we need a clean button-->
+			<p style="position:fixed; TOP:700px; LEFT:100px;"> Legend: Blue means positive velocity, red means negative. Dark colours mean that we are close to the speed of light while light colours mean that we are not. </p>
+
+			<canvas                id="mycanvas1" style="position:absolute; TOP:175px; LEFT:10px;   WIDTH:500px; HEIGHT:500px"></canvas>
+			<canvas                id="mycanvas2" style="position:absolute; TOP:175px; LEFT:515px;  WIDTH:500px; HEIGHT:500px"></canvas>
+			 <button type="button" id="plus"      style="position:absolute; TOP:230px; LEFT:1020px; WIDTH:50px;  HEIGHT:20px;">+0.01</button> 
+			 <button type="button" id="minus"     style="position:absolute; TOP:270px; LEFT:1020px; WIDTH:50px;  HEIGHT:20px;">-0.01</button> 
+			 <button type="button" id="auto"      style="position:absolute; TOP:350px; LEFT:1020px; WIDTH:50px;  HEIGHT:20px;">Auto</button> 
+			 <button type="button" id="clean"     style="position:absolute; TOP:450px; LEFT:1020px; WIDTH:50px;  HEIGHT:20px;">Clean</button>
+			 <p class="window" id="velocitydisplay" style="position:absolute; TOP:235px; LEFT:1020px;"></p>
+
 			<script src="lorentzcode.js"></script>
 
-			<p class="small" style="position:fixed; TOP:700px; LEFT:1020px;">The source code can be located in:</p>
-			<a class="small" style="position:fixed; TOP:710px; LEFT:1160px;" target="_blank" href="https://github.com/KKilmetis8/Lorentz-Transformation-Applet">here</a>
+			<p class="small" style="position:fixed; TOP:730px; LEFT:1220px;">The source code can be located in:</p>
+			<a class="small" style="position:fixed; TOP:740px; LEFT:1360px;" target="_blank" href="https://github.com/KKilmetis8/Lorentz-Transformation-Applet">here</a>
 	</body>
 </html>
