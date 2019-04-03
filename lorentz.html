@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="UTF=8">
 		<title> Lorentz Transform </title>
+		<style type="text/css">
+			canvas {
+				border: 1px solid black;
+				background-color: white;
+			}
+			body {
+				margin: 5;
+				background-color: #BD90E1; 
+			}
+			p.small{
+				font-size: 10px;
+			}
+			a.small{
+				font-size: 10px;
+			}
+		</style>
 	</head>
 	<body>
-		
-		<script>
-		function getCursorPosition(canvas, event) {
-    	var rect = canvas.getBoundingClientRect();
-    	var x = event.clientX - rect.left;
-    	var y = event.clientY - rect.top;
-    	console.log("x: " + x + " y: " + y);
-		}	
-		function xlor(x,gamma,v,t){
-		return gamma*(x-v*t);
-		}
-		
-		function tlor(x,gamma,v,t){
-		return gamma*(t-v*x);
-		}
-		
-		function gamma(v){
-		return 1/Math.sqrt(1-v*v);
-		}
-		<canvas id="grid1" width="1000" height="1000">
+			<h1> The Lorentz Transformation</h1>
+			<p> In this applet we will examine the Lorentz transformation graphically and how it inevitably leads to the creation of cosmic lines. </p>
+			<p> Click on the graph on the right and watch how the inertial attender of the relativistic graph "sees" the same point! Then change the velocity and see the cosmic lines take shape!</p>
+			<p> The Auto button will make the cosmic lines for a given point on its own. </p>
+			<canvas id="mycanvas1" style="position:absolute; TOP:175px; LEFT:10px; WIDTH:500px; HEIGHT:500px"></canvas>
+			<canvas id="mycanvas2" style="position:absolute; TOP:175px; LEFT:515px; WIDTH:500px; HEIGHT:500px"></canvas>
+			 <button type="button" id="plus" style="position:absolute; TOP:250px; LEFT:1020px; WIDTH:50px; HEIGHT:20px;">+0.01</button> 
+			 <button type="button" id="minus" style="position:absolute; TOP:285px; LEFT:1020px; WIDTH:50px; HEIGHT:20px;">-0.01</button> 
+			 <button type="button" id="auto"style="position:absolute; TOP:350px; LEFT:1020px; WIDTH:50px; HEIGHT:20px;">Auto</button> 
+			 <!-- we need a clean button-->
+			<script src="lorentzcode.js"></script>
 
-		var g,pixelx=2, pixelt=1, velocity=0.5;
-		g=gamma(velocity);
-		document.write("Lorentz transform in x axis with c=1 is");
-		document.write ("<br>");
-		document.write(xlor(pixelx,g,velocity,pixelt));*/
-		</script>
+			<p class="small" style="position:fixed; TOP:700px; LEFT:1020px;">The source code can be located in:</p>
+			<a class="small" style="position:fixed; TOP:710px; LEFT:1160px;" target="_blank" href="https://github.com/KKilmetis8/Lorentz-Transformation-Applet">here</a>
 	</body>
 </html>
