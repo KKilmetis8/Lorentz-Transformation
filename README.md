@@ -4,8 +4,8 @@ I volunteered to make an applet that has 2 graphs. On one you can click stuff an
 I'll try to use CanvasJS and Jquery, if the need arises.
 
 People i need to thank for helping me with learning Java, HTML, JavaScript and making the thing work:
-Dimitris Stamatiou,
-Polydoros Spanoudakis,
-Leonidas Arsenopoulos,
-Thanasis Ermidis,
+Dimitris Stamatiou, 
+Panagiotis Kinnas, 
+Leonidas Arsenopoulos, 
+Thanasis Ermidis, 
 Mixalis Kalogris
